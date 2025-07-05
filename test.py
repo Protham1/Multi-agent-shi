@@ -3,7 +3,9 @@ import json
 import os
 
 def test_planner():
-    planner = PlannerAgent()
+    api_key = os.getenv("GEMINI_API_KEY")  # Replace with your key or set env var
+    planner = PlannerAgent(api_key=api_key)
+    
     goal = "Build a shoe marketplace."
     subtasks = planner.plan(goal, metadata_file="plan.json")
 
